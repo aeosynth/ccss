@@ -22,14 +22,15 @@ parse = (rules) ->
   for selector, declarations of rules
     children = {}
 
+    css += selector + ' {\n'
+
     for property, value of declarations
       if typeof value is 'object'
         delete declarations[property]
         children["#{selector} #{property}"] = value
+      else
+        css += "  #{property}: #{value};\n"
 
-    css += selector + ' {\n'
-    for property, value of declarations
-      css += "  #{property}: #{value};\n"
     css += '}\n'
 
     parse children
