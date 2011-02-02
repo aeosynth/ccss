@@ -25,11 +25,10 @@ parse = (rules) ->
     css += selector + ' {\n'
 
     for property, value of declarations
-      if typeof value is 'object'
-        delete declarations[property]
-        children["#{selector} #{property}"] = value
-      else
+      if typeof value is 'string'
         css += "  #{property}: #{value};\n"
+      else
+        children["#{selector} #{property}"] = value
 
     css += '}\n'
 
