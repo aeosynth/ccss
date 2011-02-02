@@ -19,22 +19,20 @@ root =
 css = ''
 
 parse = (selector, declarations) ->
-  children = []
+  children = {}
 
   for property, value of declarations
     if typeof value is 'object'
-      children.push
-        selector: "#{selector} #{property}"
-        declarations: value
       delete declarations[property]
+      children["#{selector} #{property}"] = value
 
   css += selector + ' {\n'
   for property, value of declarations
     css += "  #{property}: #{value};\n"
   css += '}\n'
 
-  for child in children
-    parse child.selector, child.declarations
+  for selector, declarations of children
+    parse selector, declarations
 
 for selector, declarations of root
   parse selector, declarations
