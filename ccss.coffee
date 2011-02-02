@@ -8,7 +8,7 @@ boxShadow = (arg) ->
 lighten = saturate = (color, diff) ->#TODO
   color
 
-root =
+rules =
   '.box': do ->
     base = '#f938ab'
     color: saturate base, '5%'
@@ -18,23 +18,22 @@ root =
 
 css = ''
 
-parse = (selector, declarations) ->
-  children = {}
+parse = (rules) ->
+  for selector, declarations of rules
+    children = {}
 
-  for property, value of declarations
-    if typeof value is 'object'
-      delete declarations[property]
-      children["#{selector} #{property}"] = value
+    for property, value of declarations
+      if typeof value is 'object'
+        delete declarations[property]
+        children["#{selector} #{property}"] = value
 
-  css += selector + ' {\n'
-  for property, value of declarations
-    css += "  #{property}: #{value};\n"
-  css += '}\n'
+    css += selector + ' {\n'
+    for property, value of declarations
+      css += "  #{property}: #{value};\n"
+    css += '}\n'
 
-  for selector, declarations of children
-    parse selector, declarations
+    parse children
 
-for selector, declarations of root
-  parse selector, declarations
+parse rules
 
 console.log css
