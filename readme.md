@@ -1,10 +1,10 @@
 CoffeeScript CSS
 
 ccss:
-  foo:
-    hurr: 'durr'
-    bar:
-      lol: 'wat'
+    foo:
+      hurr: 'durr'
+      bar:
+        lol: 'wat'
 
 css:
     foo {
