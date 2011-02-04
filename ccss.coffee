@@ -1,9 +1,9 @@
 #!/usr/bin/env coffee
 
 boxShadow = (arg) ->
-  '-webkit-box-shadow': arg
-  '-moz-box-shadow':    arg
-  'box-shadow':         arg
+  WebkitBoxShadow: arg
+  MozBoxShadow:    arg
+  boxShadow:       arg
 
 lighten = saturate = (color, diff) ->#TODO
   color
@@ -12,7 +12,7 @@ rules =
   '.box': do ->
     base = '#f938ab'
     color: saturate base, '5%'
-    'border-color': lighten base, '5%'
+    borderColor: lighten base, '5%'
     div:
       boxShadow '0 0 5px 0.4'
 
@@ -26,6 +26,7 @@ parse = (rules) ->
 
     for property, value of declarations
       if typeof value is 'string'
+        property = property.replace /[A-Z]/g, (str) -> '-' + str.toLowerCase()
         css += "  #{property}: #{value};\n"
       else
         children["#{selector} #{property}"] = value
