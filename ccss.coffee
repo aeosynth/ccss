@@ -21,16 +21,19 @@ css = ''
 parse = (rules) ->
   for selector, declarations of rules
     children = {}
-
-    css += selector + ' {\n'
+    text = ''
 
     for property, value of declarations
       if typeof value is 'object'
         children["#{selector} #{property}"] = value
       else
-        css += "  #{property}: #{value};\n"
+        text += "  #{property}: #{value};\n"
 
-    css += '}\n'
+    if text
+      #we have to check; this level could just be for nesting.
+      css += selector + ' {\n'
+      css += text
+      css += '}\n'
 
     parse children
 
