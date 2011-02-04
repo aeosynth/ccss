@@ -1,24 +1,6 @@
-#!/usr/bin/env coffee
-
-boxShadow = (arg) ->
-  '-webkit-box-shadow': arg
-  '-moz-box-shadow':    arg
-  'box-shadow':         arg
-
-lighten = saturate = (color, diff) ->#TODO
-  color
-
-rules =
-  '.box': do ->
-    base = '#f938ab'
-    color: saturate base, '5%'
-    'border-color': lighten base, '5%'
-    div:
-      boxShadow '0 0 5px 0.4'
-
 css = ''
 
-parse = (rules) ->
+compile = (rules) ->
   for selector, declarations of rules
     children = {}
     text = ''
@@ -35,8 +17,10 @@ parse = (rules) ->
       css += text
       css += '}\n'
 
-    parse children
+    compile children
 
-parse rules
-
-console.log css
+@compile = (rules) ->
+  compile rules
+  ret = css
+  css = ''
+  ret
