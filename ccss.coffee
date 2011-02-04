@@ -5,11 +5,11 @@ compile = (rules) ->
     children = {}
     text = ''
 
-    for property, value of declarations
+    for key, value of declarations
       if typeof value is 'object'
-        children["#{selector} #{property}"] = value
+        children["#{selector} #{key}"] = value
       else
-        text += "  #{property}: #{value};\n"
+        text += "  #{key}: #{value};\n"
 
     if text
       #we have to check; this level could just be for nesting.
