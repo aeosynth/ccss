@@ -22,7 +22,9 @@ parse = (rules) ->
   for selector, declarations of rules
     children = {}
 
-    selector = selector.replace /_/g, '.'
+    selector = selector
+      .replace(/_/g, '.')
+      .replace(/\$/g, '#')
     css += selector + ' {\n'
 
     for property, value of declarations
