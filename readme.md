@@ -25,7 +25,7 @@ if you want logic, simply wrap it up in a function which returns an object:
 
 ccss:
     '.foo': do ->
-      opaque = 100
+      opaque = 1
       translucent = opaque / 2
       img:
         opacity: translucent
@@ -34,10 +34,10 @@ ccss:
 
 css:
     .foo img {
-      opacity: 50;
+      opacity: .5;
     }
     .foo img:hover {
-      opacity: 100;
+      opacity: 1;
     }
 
 as seen in the above example, we have to quote keys that confuse coffee-script.
