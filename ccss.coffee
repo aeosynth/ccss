@@ -9,6 +9,8 @@ compile = (rules) ->
       if typeof value is 'object'
         children["#{selector} #{key}"] = value
       else
+        #borderRadius -> border-radius
+        key = key.replace /[A-Z]/g, (s) -> '-' + s.toLowerCase()
         text += "  #{key}: #{value};\n"
 
     if text
