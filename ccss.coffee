@@ -9,7 +9,7 @@ lighten = saturate = (color, diff) ->#TODO
   color
 
 rules =
-  '.box': do ->
+  _box: do ->
     base = '#f938ab'
     color: saturate base, '5%'
     borderColor: lighten base, '5%'
@@ -22,6 +22,7 @@ parse = (rules) ->
   for selector, declarations of rules
     children = {}
 
+    selector = selector.replace /_/g, '.'
     css += selector + ' {\n'
 
     for property, value of declarations
