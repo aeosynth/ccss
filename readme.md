@@ -29,7 +29,7 @@ the core of the compiler is simply this:
 iterate over the key / values of an object; if the value is another object,
 append the key to the current selector, and recurse; else generate css.
 
-if you want inline logic, wrap it up in a function which returns an object.
+if you want logic, wrap it up in a function which returns an object.
 
 keys that would confuse the real compiler, coffee-script, must be quoted.
 
