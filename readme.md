@@ -16,12 +16,10 @@ css:
 
 the core of the compiler is simply this:
 
-iterate over the key / values of an object; if the value is a string,
-transform the key / values into css property / values;
-if the value is an object, append the key to the current selector, and recurse.
+iterate over the key / values of an object; if the value is another object,
+append the key to the current selector, and recurse; else generate css.
 
-
-if you want logic, simply wrap it up in a function which returns an object:
+if you want logic, wrap it up in a function which returns an object:
 
 ccss:
     '.foo': do ->
