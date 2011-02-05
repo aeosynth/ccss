@@ -1,6 +1,6 @@
-css = ''
+@compile = (ccss) ->
+  css = ''
 
-compile = (ccss) ->
   for selector, pairs of ccss
     # a pair can be a css declaration, or a pair of the child ccss object
     child = {}
@@ -20,10 +20,6 @@ compile = (ccss) ->
       css += declarations
       css += '}\n'
 
-    compile child
+    css += @compile child
 
-@compile = (ccss) ->
-  compile ccss
-  ret = css
-  css = ''
-  ret
+  css
