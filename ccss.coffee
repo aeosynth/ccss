@@ -1,28 +1,29 @@
 css = ''
 
-compile = (rules) ->
-  for selector, declarations of rules
-    children = {}
-    text = ''
+compile = (ccss) ->
+  for selector, pairs of ccss
+    # a pair can be a css declaration, or a pair of the child ccss object
+    child = {}
+    declarations = ''
 
-    for key, value of declarations
+    for key, value of pairs
       if typeof value is 'object'
-        children["#{selector} #{key}"] = value
+        child["#{selector} #{key}"] = value
       else
         #borderRadius -> border-radius
         key = key.replace /[A-Z]/g, (s) -> '-' + s.toLowerCase()
-        text += "  #{key}: #{value};\n"
+        declarations += "  #{key}: #{value};\n"
 
-    if text
+    if declarations
       #we have to check; this level could just be for nesting.
       css += selector + ' {\n'
-      css += text
+      css += declarations
       css += '}\n'
 
-    compile children
+    compile child
 
-@compile = (rules) ->
-  compile rules
+@compile = (ccss) ->
+  compile ccss
   ret = css
   css = ''
   ret
