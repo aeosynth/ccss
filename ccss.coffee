@@ -1,14 +1,14 @@
-@compile = (ccss) ->
+@compile = (rules) ->
   css = ''
 
-  for selector, pairs of ccss
-    # a pair can be a css declaration, or a pair of the child ccss object
-    child = {}
+  for selector, pairs of rules
+    # a pair is either a css declaration, or a nested rule
     declarations = ''
+    nested = {}
 
     for key, value of pairs
       if typeof value is 'object'
-        child["#{selector} #{key}"] = value
+        nested["#{selector} #{key}"] = value
       else
         #borderRadius -> border-radius
         key = key.replace /[A-Z]/g, (s) -> '-' + s.toLowerCase()
@@ -20,6 +20,6 @@
       css += declarations
       css += '}\n'
 
-    css += @compile child
+    css += @compile nested
 
   css
