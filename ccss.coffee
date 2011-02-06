@@ -1,3 +1,5 @@
+fs = require 'fs'
+
 @compile = (rules) ->
   css = ''
 
@@ -23,3 +25,9 @@
     css += @compile nested
 
   css
+
+@compileFile = (infile, outfile) ->
+  rules = require process.cwd() + '/' + infile
+  css = @compile rules
+  outfile or= infile.replace /coffee$/, 'css'
+  fs.writeFileSync outfile, css
