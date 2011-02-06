@@ -8,6 +8,11 @@ fs = require 'fs'
     declarations = ''
     nested = {}
 
+    if mixin = pairs.mixin
+      delete pairs.mixin
+      for key, value of mixin
+        pairs[key] = value
+
     for key, value of pairs
       if typeof value is 'object'
         nested["#{selector} #{key}"] = value
