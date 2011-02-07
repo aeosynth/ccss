@@ -1,5 +1,7 @@
 CoffeeScript CSS
 
+install: `npm install ccss`
+
 main.coffee:
     ccss = require 'ccss'
 
