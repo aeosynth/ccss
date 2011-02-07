@@ -10,8 +10,11 @@ fs = require 'fs'
 
     if mixin = pairs.mixin
       delete pairs.mixin
-      for key, value of mixin
-        pairs[key] = value
+      if typeof mixin is 'object'
+        mixin = [mixin]
+      for mix in mixin
+        for key, value of mix
+          pairs[key] = value
 
     for key, value of pairs
       if typeof value is 'object'
