@@ -8,7 +8,7 @@ fs = require 'fs'
     declarations = ''
     nested = {}
 
-    if mixin = pairs.mixin
+    if {mixin} = pairs
       delete pairs.mixin
       unless mixin instanceof Array
         mixin = [mixin]
