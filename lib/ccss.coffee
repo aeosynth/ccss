@@ -4,10 +4,10 @@ fs = require 'fs'
   css = ''
 
   for selector, pairs of rules
-    # a pair is either a css declaration, or a nested rule
     declarations = ''
     nested = {}
 
+    #add mixins to the current level
     if {mixin} = pairs
       delete pairs.mixin
       unless mixin instanceof Array
@@ -16,6 +16,7 @@ fs = require 'fs'
         for key, value of mix
           pairs[key] = value
 
+    #a pair is either a css declaration, or a nested rule
     for key, value of pairs
       if typeof value is 'object'
         nested["#{selector} #{key}"] = value
