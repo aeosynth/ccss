@@ -10,7 +10,7 @@ fs = require 'fs'
 
     if mixin = pairs.mixin
       delete pairs.mixin
-      if typeof mixin is 'object'
+      unless mixin instanceof Array
         mixin = [mixin]
       for mix in mixin
         for key, value of mix
