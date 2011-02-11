@@ -13,10 +13,10 @@ extend = (object, properties) ->
     nested = {}
 
     #add mixins to the current level
-    if {mixin} = pairs
-      delete pairs.mixin
-      for mix in [].concat mixin
-        extend pairs, mix
+    if {mixins} = pairs
+      delete pairs.mixins
+      for mixin in [].concat mixins
+        extend pairs, mixin
 
     #a pair is either a css declaration, or a nested rule
     for key, value of pairs
