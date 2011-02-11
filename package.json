@@ -1,0 +1,14 @@
+{
+  "name": "ccss",
+  "description": "CoffeeScript CSS",
+  "version": "0.0.0",
+  "repository": "git://github.com/aeosynth/ccss.git",
+  "author": "James Campos <james.r.campos@gmail.com>",
+  "main": "ccss",
+  "directories": {
+    "lib": "lib"
+  },
+  "engines": {
+    "node": "*"
+  }
+}
