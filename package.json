@@ -1,8 +1,16 @@
 {
   "name": "ccss",
   "description": "CoffeeScript CSS",
-  "version": "0.1.1",
-  "repository": "git://github.com/aeosynth/ccss.git",
+  "version": "0.1.2-1",
+  "keywords": ["css"],
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/aeosynth/ccss/raw/master/LICENSE"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aeosynth/ccss.git"
+  },
   "author": "James Campos <james.r.campos@gmail.com>",
   "main": "lib/ccss",
   "engines": {
