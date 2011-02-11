@@ -27,11 +27,7 @@ extend = (object, properties) ->
         key = key.replace /[A-Z]/g, (s) -> '-' + s.toLowerCase()
         declarations += "  #{key}: #{value};\n"
 
-    if declarations
-      #we have to check; this level could just be for nesting.
-      css += selector + ' {\n'
-      css += declarations
-      css += '}\n'
+    declarations and css += "#{selector} {\n#{declarations}}\n"
 
     css += @compile nested
 
