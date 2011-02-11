@@ -15,9 +15,7 @@ extend = (object, properties) ->
     #add mixins to the current level
     if {mixin} = pairs
       delete pairs.mixin
-      unless mixin instanceof Array
-        mixin = [mixin]
-      for mix in mixin
+      for mix in [].concat mixin
         extend pairs, mix
 
     #a pair is either a css declaration, or a nested rule
