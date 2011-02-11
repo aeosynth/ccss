@@ -1,5 +1,10 @@
 fs = require 'fs'
 
+extend = (object, properties) ->
+  for key, value of properties
+    object[key] = value
+  object
+
 @compile = (rules) ->
   css = ''
 
@@ -13,8 +18,7 @@ fs = require 'fs'
       unless mixin instanceof Array
         mixin = [mixin]
       for mix in mixin
-        for key, value of mix
-          pairs[key] = value
+        extend pairs, mix
 
     #a pair is either a css declaration, or a nested rule
     for key, value of pairs
