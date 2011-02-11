@@ -21,7 +21,10 @@ extend = (object, properties) ->
     #a pair is either a css declaration, or a nested rule
     for key, value of pairs
       if typeof value is 'object'
-        nested["#{selector} #{key}"] = value
+        children = []
+        split = key.split /\s*,\s*/
+        children.push "#{selector} #{child}" for child in split
+        nested[children.join ','] = value
       else
         #borderRadius -> border-radius
         key = key.replace /[A-Z]/g, (s) -> '-' + s.toLowerCase()
