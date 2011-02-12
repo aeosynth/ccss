@@ -1,5 +1,9 @@
 CoffeeScript CSS
 
+despite the name, CoffeeScript is not required; it just makes writing objects
+(as well as everything else) easier. You could create a JSON string in another
+language, parse it in node, and render it with ccss.
+
 install: `npm install ccss`
 
 main.coffee:
