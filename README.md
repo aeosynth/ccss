@@ -27,12 +27,12 @@ template.coffee:
         input:
           padding: '5px'
           border: '1px solid'
-          mixin: borderRadius '5px'
+          mixins: borderRadius '5px'
       '#id .className': do ->
         opaque = 1
         translucent = opaque / 2
         img:
-          mixin: [
+          mixins: [
             borderRadius '5px'
             boxShadow '5px'
           ]
