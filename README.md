@@ -7,6 +7,7 @@ language, parse it in node, and render it with ccss.
 install: `npm install ccss`
 
 main.coffee:
+
     ccss = require 'ccss'
 
     template = require './template.coffee'
@@ -16,6 +17,7 @@ main.coffee:
     #or all at once: ccss.compileFile './template.coffee', 'main.css'
 
 template.coffee:
+
     borderRadius = (str) ->
       WebkitBorderRadius: str
       MozBorderRadius:    str
@@ -45,6 +47,7 @@ template.coffee:
           opacity: opaque
 
 main.css:
+
     form input {
       padding: 5px;
       border: 1px solid;
