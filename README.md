@@ -75,3 +75,9 @@ append the key to the current selector, and recurse; else generate css.
 
 to reduce the amount of quoting, if a css property has a capital letter C,
 it will be transformed into -c; selectors are not touched.
+
+# Related
+
+[CoffeeKup](http://coffeekup.org/) - CoffeeScript to HTML
+
+[ckup](http://satyr.github.com/ckup/) - [Coco](http://satyr.github.com/coco/) to both HTML and CSS
