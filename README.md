@@ -81,3 +81,5 @@ it will be transformed into -c; selectors are not touched.
 [CoffeeKup](http://coffeekup.org/) - CoffeeScript to HTML
 
 [ckup](http://satyr.github.com/ckup/) - [Coco](http://satyr.github.com/coco/) to both HTML and CSS
+
+[CoffeeStylesheets](https://github.com/mikesmullin/coffee-stylesheets) - Another CoffeeScript to CSS approach
